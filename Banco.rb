@@ -5,7 +5,7 @@ class Banco
 
   def self.criar_banco
     SQLite3::Database.new(DATABASE_FILE) do |db|
-      db.execute <<-SQL 
+      @db.execute <<-SQL 
       CREATE TABLE IF NOT EXISTS produtos(
         id integer PRIMARY KEY AUTOINCREMENT,
         nome text not null,
@@ -25,6 +25,14 @@ class Banco
         );
       SQL
     end
+  end
+
+  def inserir()
+    @db.execute()
+  end 
+
+  def ler()
+    @db.execute()
   end
 
 end
