@@ -8,4 +8,6 @@ main{
     background-color: aliceblue;
     color: black;
     font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    width: 100%;
 }

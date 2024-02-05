@@ -29,6 +29,12 @@
         </tr>
       <% end %>
     </tbody>
+    <label for="Remedio">Remédio</label>
+    <select name="Remedio" id="Remedio">
+      <% @remedios.each do |remedio|%>
+      <option value = "<%= remedio[0]%>" > <%= remedio[1]%></option>
+      <%end%>
+    </select>
   </table>
         <a href="/">Voltar</a>
     </main>

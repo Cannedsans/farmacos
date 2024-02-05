@@ -30,8 +30,25 @@ post '/remedio' do
     descricao = params[:descricao]
     preco = params[:preco]
 
-    banco.inserir(nome,preco,descricao)
+    banco.inserirProduto(nome,preco,descricao)
+
+    redirect '/compra'
+end
+
+post '/cliente' do 
+    banco = Banco.new 
+
+    cpf = params[:CPF]
+    nome = params[:nome]
+    endereco = params[:adress]
+    
+    banco.inserirCliente(cpf,nome,endereco)
 
     redirect '/'
 end
     
+get '/clear' do
+     banco = Banco.new
+     banco.limpar
+     redirect '/compra'
+end 
