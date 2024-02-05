@@ -1,4 +1,13 @@
-.Topo{
+.Topo {
     color: aliceblue;
     background-color: red;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+main{
+    background-color: aliceblue;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    width: 100%;
 }

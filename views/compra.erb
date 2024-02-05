@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="Pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprar produtos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class = "Topo">
+        <h1>Farmácia farmacos</h1>
+        <p>Compra</p>
+    </div>
+    <main>
+        <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Descrição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @remedios.each do |remedio| %>
+        <tr>
+          <td><%= remedio[1] %></td>
+          <td><%= remedio[2] %></td>
+          <td><%= remedio[3] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    <label for="Remedio">Remédio</label>
+    <select name="Remedio" id="Remedio">
+      <% @remedios.each do |remedio|%>
+      <option value = "<%= remedio[0]%>" > <%= remedio[1]%></option>
+      <%end%>
+    </select>
+  </table>
+        <a href="/">Voltar</a>
+    </main>
+</body>
+</html>
