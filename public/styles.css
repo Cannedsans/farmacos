@@ -10,4 +10,5 @@ main{
     font-family: 'Courier New', Courier, monospace;
     display: flex;
     width: 100%;
+    text-align: left;
 }

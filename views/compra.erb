@@ -12,30 +12,22 @@
         <p>Compra</p>
     </div>
     <main>
-        <table>
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Preço</th>
-        <th>Descrição</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @remedios.each do |remedio| %>
-        <tr>
-          <td><%= remedio[1] %></td>
-          <td><%= remedio[2] %></td>
-          <td><%= remedio[3] %></td>
-        </tr>
-      <% end %>
-    </tbody>
-    <label for="Remedio">Remédio</label>
-    <select name="Remedio" id="Remedio">
-      <% @remedios.each do |remedio|%>
-      <option value = "<%= remedio[0]%>" > <%= remedio[1]%></option>
-      <%end%>
-    </select>
-  </table>
+        <form action="/compra">
+          <label for="remedio">Remédio</label>
+          <select name="remedio" id="remedio">
+            <% @remedios.each do |emedio|%>
+            <option value = "<%= emedio[0]%>" > <%= emedio[1]%></option>
+            <%end%>  
+          </select>
+          <label for="cliente">Cliente</label>
+          <select name="cliente" id="cliente">
+            <label for="cliente">Cliente</label>
+            <% @clientes.each do |liente|%>
+            <option value="<%= liente[1]%>"> <%= liente[1]%> </option>
+            <%end%>
+          </select>
+          <input type="submit" value = "Comprar">
+        </form>
         <a href="/">Voltar</a>
     </main>
 </body>

@@ -89,6 +89,17 @@ class Banco
     db.close if db
   end
 end
+  def comprar(id,cliente)
+    begin
+    db = SQLite3::Database.new(DATABASE_FILE)
+    db.execute("INSERT INTO pedido (id,nomecliente,produto)VALUES (?,?,?)",[id,cliente,id])
+    rescue SQLite3::Exception => e
+      puts "ERRO: #{e}"
+      return nil
+    ensure
+      db.close if db
+    end
+  end
 end
 
 Banco.criar_banco
