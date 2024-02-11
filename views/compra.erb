@@ -12,7 +12,8 @@
         <p>Compra</p>
     </div>
     <main>
-        <form action="/compra">
+        <div>
+          <form action="/compra">
           <label for="remedio">Remédio</label>
           <select type="number" name="remedio" id="remedio">
             <% @remedios.each do |remedio|%>
@@ -28,7 +29,8 @@
           </select>
           <input type="submit" value = "Comprar">
         </form>
-        <span><a href="/">Voltar</a></span>
+        </div>
+        <a href="/"><input type="button" value="Voltar"></a>
     </main>
 </body>
 </html>  
