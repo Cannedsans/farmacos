@@ -14,21 +14,21 @@
     <main>
         <form action="/compra">
           <label for="remedio">Remédio</label>
-          <select name="remedio" id="remedio">
-            <% @remedios.each do |emedio|%>
-            <option value = "<%= emedio[0]%>" > <%= emedio[1]%></option>
+          <select type="number" name="remedio" id="remedio">
+            <% @remedios.each do |remedio|%>
+            <option value = "<%= remedio[0]%>" > <%= remedio[1]%></option>
             <%end%>  
           </select>
           <label for="cliente">Cliente</label>
-          <select name="cliente" id="cliente">
+          <select type="text" name="cliente" id="cliente">
             <label for="cliente">Cliente</label>
-            <% @clientes.each do |liente|%>
-            <option value="<%= liente[1]%>"> <%= liente[1]%> </option>
+            <% @clientes.each do |cliente|%>
+            <option value="<%= cliente[1]%>"> <%= cliente[1]%> </option>
             <%end%>
           </select>
           <input type="submit" value = "Comprar">
         </form>
-        <a href="/">Voltar</a>
+        <span><a href="/">Voltar</a></span>
     </main>
 </body>
-</html>
+</html>  

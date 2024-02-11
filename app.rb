@@ -4,6 +4,7 @@ require_relative 'Banco'
 get '/' do 
     banco = Banco.new 
     @remedios = banco.ler("Produtos")
+    @cliente = banco.ler("cliente")
     erb :index
 end 
 
@@ -25,6 +26,16 @@ get '/compra' do
     @clientes = banco.ler("cliente")
     erb :compra
 end 
+
+post '/compra' do 
+    banco = Banco.new
+    
+    remedio = params[:remedio]
+    cliente = params[:cliente]
+
+    banco.comprar(remedio,cliente)
+    redirect '/'
+end
 
 post '/remedio' do 
     banco = Banco.new
@@ -50,16 +61,6 @@ post '/cliente' do
     redirect '/'
 end
     
-post '/compra' do 
-    banco = Banco.new
-
-    remedio = params[:remedio]
-    cliente = params[:cliente]
-
-    b.comprar(remedio,cliente)
-
-    redirect '/'
-end
 
 get '/clear' do
      banco = Banco.new

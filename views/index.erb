@@ -16,8 +16,9 @@
             <h2>Qual serviço deseja acessar?</h2>
             <p>para Cadastrar um produto clique <a href="/cadastro">aqui</a></p>
             <p>para Cadastrar um cliente clique <a href="/clientes">aqui</a></p>
-            <p>para Comprar um produto clique <a href="/compra">aqui</a></p>
-
+            <p>para Comprar um produto clique <a href="/compra">aqui</a></p>           
+        </div>
+        <div>
             <h2>Remédios cadastrados</h2>
             <table>
             <thead>
@@ -36,6 +37,30 @@
                     </tr>
                 <% end %>
             </tbody>
+        </div>
+        <div>
+            <p>
+                <h2>Clientes cadastrados</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>CPF</th>
+                        <th>Nome</th>
+                        <th>Endereço</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @cliente.each do |cliente|%>
+                    <tr>
+                        <td><%= cliente[0] %></td>
+                        <td><%= cliente[1] %></td>
+                        <td><%= cliente[2] %></td>
+                    </tr>
+                    <%end%>
+                </tbody>
+            </table>
+            </p>
         </div>
     </main>
 </body>

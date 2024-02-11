@@ -1,0 +1,11 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "driver": "SQLite",
+      "database": "${workspaceFolder:farmacos}/data/farmacia.db",
+      "name": "farmacos",
+      "group": "farmacos"
+    }
+  ]
+}
