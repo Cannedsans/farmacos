@@ -1,0 +1,107 @@
+body {
+  background-image: url(/imagem);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.Topo {
+  background-color: #ff0000;
+  color: #fff;
+  padding: 10px;
+  text-align: left;
+  border-radius: 0px 0px 10px 10px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  padding: 10%;
+  margin: auto;
+  border-radius: 15px;
+  background-color: aliceblue;
+  border: 1px solid #ccc;
+}
+
+main > div {
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+a input[type="button"] {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+a:hover input[type="button"] {
+  background-color: #0056b3;
+  text-decoration: underline;
+}
+
+div form {
+  margin-bottom: 20px;
+}
+
+div form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+div form input[type="text"],
+div form input[type="number"],
+div form select {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+div form input[type="submit"],
+div a button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+div form input[type="submit"]:hover,
+div a button:hover {
+  background-color: #0056b3;
+  box-align: right;
+}
+caption {
+  background-color: #f2f2f2;
+  color: black;
+  text-align: left;
+  border-radius: 5px 5px 0px 0px;
+  border: 1px solid #ccc;
+}
