@@ -13,7 +13,7 @@
     </div>
     <main>
         <div>
-          <form action="/compra">
+          <form action="/comprar">
           <label for="remedio">Remédio</label>
           <select type="number" name="remedio" id="remedio">
             <% @remedios.each do |remedio|%>
@@ -30,7 +30,28 @@
           <input type="submit" value = "Comprar">
         </form>
         </div>
-        <a href="/"><input type="button" value="Voltar"></a>
+        <div>
+                <table>
+                <caption>Pedidos feitos</caption>
+            <thead>
+                    <tr>
+                    <th>Cliente</th>
+                    <th>Produto</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @pedidos.each do |pedido| %>
+                    <tr>
+                    <td><%= pedido[2] %></td>
+                    <td><%= pedido[1] %></td>
+                    <td><%= pedido[3] %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+            </table>
+           <a href="/"><input type="button" value="Voltar"></a>
+        </div>
     </main>
 </body>
 </html>  

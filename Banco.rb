@@ -81,7 +81,10 @@ class Banco
     def limpar
   begin
     db = SQLite3::Database.new(DATABASE_FILE)
+    db.execute("DELETE FROM pedido;")
+    db.execute("DELETE FROM cliente;")
     db.execute("DELETE FROM produtos;")
+    db.execute("DELETE FROM sqlite_sequence;")
   rescue SQLite3::Exception => e
     puts "Erro ao limpar dados do banco de dados: #{e}"
     return nil
@@ -92,7 +95,7 @@ end
   def comprar(id,cliente)
     begin
     db = SQLite3::Database.new(DATABASE_FILE)
-    db.execute("INSERT INTO pedido (id,nomecliente,produto)VALUES (?,?,?)",[id,cliente,id])
+    db.execute("INSERT INTO pedido (nomecliente,produto)VALUES (?,?)",[cliente,id])
     rescue SQLite3::Exception => e
       puts "ERRO: #{e}"
       return nil
@@ -100,6 +103,21 @@ end
       db.close if db
     end
   end
+  def pedidos
+    begin
+      db = SQLite3::Database.new(DATABASE_FILE)
+     pedidos = db.execute <<-SQL
+      SELECT pedido.id AS pedido_id, produtos.nome AS nome_produto, pedido.nomecliente, pedido.criacao
+      FROM pedido
+      JOIN produtos ON pedido.produto = produtos.id;
+     SQL
+    rescue SQLite3::Exception => e
+      puts "ERRO: #{e}"
+      return nil
+    ensure
+      db.close if db
+    end
+  end 
 end
 
 Banco.criar_banco

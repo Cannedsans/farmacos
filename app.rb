@@ -2,9 +2,6 @@ require 'sinatra'
 require_relative 'Banco'
 
 get '/' do 
-    banco = Banco.new 
-    @remedios = banco.ler("Produtos")
-    @cliente = banco.ler("cliente")
     erb :index
 end 
 
@@ -13,28 +10,33 @@ get '/styles.css' do
 end
 
 get '/cadastro' do
+    banco = Banco.new 
+    @remedios = banco.ler("Produtos")
      erb :cadastro
 end 
 
 get '/clientes' do 
+    banco = Banco.new 
+    @cliente = banco.ler("cliente")
     erb :clientes
 end
 
 get '/compra' do
     banco = Banco.new 
+    @pedidos = banco.pedidos
     @remedios = banco.ler("Produtos")
     @clientes = banco.ler("cliente")
     erb :compra
 end 
 
-post '/compra' do 
+get '/comprar' do 
     banco = Banco.new
     
     remedio = params[:remedio]
     cliente = params[:cliente]
 
     banco.comprar(remedio,cliente)
-    redirect '/'
+    redirect '/compra'
 end
 
 post '/remedio' do 
@@ -46,7 +48,7 @@ post '/remedio' do
 
     banco.inserirProduto(nome,preco,descricao)
 
-    redirect '/compra'
+    redirect '/cadastro'
 end
 
 post '/cliente' do 
@@ -58,12 +60,12 @@ post '/cliente' do
     
     banco.inserirCliente(cpf,nome,endereco)
 
-    redirect '/'
+    redirect '/clientes'
 end
     
 
 get '/clear' do
      banco = Banco.new
      banco.limpar
-     redirect '/compra'
+     redirect '/'
 end 

@@ -22,8 +22,32 @@
             <input type="number" id="preco" name="preco" required>
             <input type="submit" value="Adicionar Remédio">
         </form>
+        
         </div>
-            <a href="/"><input type="button" value="Voltar"></a>
+        
+        <div>
+                <table>
+                <caption>Remédios cadastrados</caption>
+            <thead>
+                    <tr>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @remedios.each do |remedio| %>
+                    <tr>
+                    <td><%= remedio[1] %></td>
+                    <td><%= remedio[2] %></td>
+                    <td><%= remedio[3] %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+            </table>
+           <a href="/"><input type="button" value="Voltar"></a>
+        </div>
+             
     </main>
 </body>
 </html>
