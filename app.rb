@@ -5,6 +5,10 @@ get '/' do
     erb :index
 end 
 
+get '/imagem' do
+    send_file 'public/img/background.jpg'
+end 
+
 get '/styles.css' do 
     scss :styles
 end
@@ -36,6 +40,7 @@ get '/comprar' do
     cliente = params[:cliente]
 
     banco.comprar(remedio,cliente)
+
     redirect '/compra'
 end
 
@@ -60,12 +65,13 @@ post '/cliente' do
     
     banco.inserirCliente(cpf,nome,endereco)
 
-    redirect '/clientes'
+    redirect 'clientes'
 end
     
 
 get '/clear' do
      banco = Banco.new
      banco.limpar
+
      redirect '/'
 end 
